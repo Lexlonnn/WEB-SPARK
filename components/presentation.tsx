@@ -30,7 +30,6 @@ const slides = [
     type: "title",
     title: "Introduction to React.js",
     subtitle: "Building Efficient User Interfaces",
-    footer: "Your Name, Date, Organization",
     animation: BuildingBlocksAnimation,
   },
   {
@@ -138,6 +137,37 @@ const slides = [
   },
   {
     id: 10,
+    type: "content",
+    title: "React Router Example",
+    subtitle: "Navigation with Routes",
+    points: ["Button navigates to Counter route", "Routes define different pages", "useNavigate hook for navigation"],
+    code: `import { useNavigate, Route, Routes } from 'react-router-dom'
+import { Button } from '@mui/material'
+import Counter from './components/Counter'
+
+function App() {
+  const navigate = useNavigate();
+
+  return (
+    <>
+      <Button 
+        variant="contained" 
+        onClick={() => navigate('/count')}
+        style={{ margin: '20px' }}
+      >
+        Counter
+      </Button>
+
+      <Routes>
+        <Route path="/count" element={<Counter />} />
+      </Routes>
+    </>
+  )
+}`,
+    animation: RouterNavigationAnimation,
+  },
+  {
+    id: 11,
     type: "demo",
     title: "State Demo: Counter Example",
     subtitle: "See State in Action",
@@ -145,7 +175,7 @@ const slides = [
     animation: StateCounterAnimation,
   },
   {
-    id: 11,
+    id: 12,
     type: "content",
     title: "Event Handling",
     subtitle: "Responding to User Actions",
@@ -155,7 +185,7 @@ const slides = [
     demoLink: "/topics/events",
   },
   {
-    id: 12,
+    id: 13,
     type: "content",
     title: "React Hooks",
     subtitle: "Modern React Features",
@@ -165,7 +195,7 @@ const slides = [
     demoLink: "/topics/hooks",
   },
   {
-    id: 13,
+    id: 14,
     type: "content",
     title: "React Router (Navigation)",
     subtitle: "Single Page Applications",
@@ -174,7 +204,7 @@ const slides = [
     animation: RouterNavigationAnimation,
   },
   {
-    id: 14,
+    id: 15,
     type: "content",
     title: "Styling in React",
     subtitle: "Making Your App Beautiful",
@@ -187,7 +217,7 @@ const slides = [
     demoLink: "/topics/styling",
   },
   {
-    id: 15,
+    id: 16,
     type: "content",
     title: "Advantages of React",
     points: [
@@ -200,7 +230,7 @@ const slides = [
     animation: AdvantagesAnimation,
   },
   {
-    id: 16,
+    id: 17,
     type: "conclusion",
     title: "Conclusion & Q/A",
     points: [
@@ -327,7 +357,6 @@ export default function Presentation() {
               <p className="text-2xl md:text-3xl text-purple-600 font-semibold animate-fade-in-delay-1">
                 {slide.subtitle}
               </p>
-              {slide.footer && <p className="text-lg text-gray-600 mt-16 animate-fade-in-delay-2">{slide.footer}</p>}
             </div>
           )}
 
@@ -353,8 +382,8 @@ export default function Presentation() {
               </ul>
 
               {slide.code && (
-                <div className="mt-8 bg-purple-50/80 border-2 border-purple-200 rounded-lg p-6 hover:border-purple-400 transition-colors duration-300 animate-fade-in-delay-3 shadow-lg shadow-purple-100">
-                  <pre className="text-lg md:text-xl font-mono text-purple-700 overflow-x-auto">
+                <div className="mt-8 bg-purple-50/80 border-2 border-purple-200 rounded-lg p-6 hover:border-purple-400 transition-colors duration-300 animate-fade-in-delay-3 shadow-lg shadow-purple-100 overflow-auto max-h-[50vh]">
+                  <pre className="text-lg md:text-xl font-mono text-purple-700">
                     <code>{slide.code}</code>
                   </pre>
                 </div>
@@ -374,8 +403,8 @@ export default function Presentation() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="animate-fade-in-delay-1">
                   <h3 className="text-2xl font-semibold mb-4 text-gray-800">Code</h3>
-                  <div className="bg-purple-50/80 border-2 border-purple-200 rounded-lg p-6 shadow-lg shadow-purple-100">
-                    <pre className="text-base md:text-lg font-mono text-purple-700 overflow-x-auto">
+                  <div className="bg-purple-50/80 border-2 border-purple-200 rounded-lg p-6 shadow-lg shadow-purple-100 overflow-auto max-h-[60vh]">
+                    <pre className="text-base md:text-lg font-mono text-purple-700">
                       <code>{slide.code}</code>
                     </pre>
                   </div>
